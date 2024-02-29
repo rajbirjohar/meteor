@@ -1,0 +1,68 @@
+.inputwrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--interactive-element-height);
+  border: var(--interactive-element-border);
+  transition: var(--transition);
+  border-radius: var(--radius);
+}
+
+.inputwrapper:focus-within {
+  border-color: var(--fill-brand);
+}
+
+.fill {
+  width: 100%;
+}
+
+.inputwrapper svg {
+  position: absolute;
+  left: var(--gutter-sm);
+  top: 0;
+  translate: 0 50%;
+  color: var(--fill-gray-secondary);
+  min-height: 20px;
+  min-width: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  opacity: 0.5;
+}
+
+.inputwrapper input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  padding: var(--gutter) var(--gutter) var(--gutter) calc(20px + var(--gutter));
+  border-radius: inherit;
+}
+
+.inputwrapper input:only-child {
+  padding: var(--gutter);
+}
+
+.inputwrapper input::placeholder {
+  color: var(--fill-gray-secondary);
+}
+
+.mirror input {
+  padding: var(--gutter) calc(20px + var(--gutter)) var(--gutter) var(--gutter);
+}
+
+.mirror svg {
+  left: auto;
+  right: var(--gutter-sm);
+}
+
+.inputwrapper input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--fill-gray-quaternary);
+}
+
+.inputwrapper input:disabled::placeholder {
+  color: var(--fill-gray);
+}

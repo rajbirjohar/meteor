@@ -1,0 +1,27 @@
+.main {
+  width: 100%;
+  max-width: var(--main-width);
+  margin: 0 auto;
+  padding: var(--gutter-xl) var(--gutter-md);
+}
+
+.article > * + *,
+.section > * + *,
+.prose > * + * {
+  margin-block-start: var(--gutter);
+}
+
+.prose {
+  width: 100%;
+  max-width: var(--prose-width);
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gutter);
+  border: 1px solid var(--fill-gray-quaternary);
+  border-radius: var(--radius-md);
+  padding: var(--gutter-lg) var(--gutter-md);
+}

@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  /* Background colors */
+  --fill: #fff;
+  --fill-secondary: #f7f7fb;
+  --fill-tertiary: #f5f5f7;
+
+  --fill-gray: #1d1d1f;
+  --fill-gray-secondary: #86868b;
+  --fill-gray-tertiary: #d2d2d7;
+  --fill-gray-quaternary: #e8e8ed;
+
+  --fill-blue: #0071e3;
+  --fill-blue-hover: #005cb2;
+  --fill-blue-secondary: #ebf2f8;
+
+  --fill-red-highlight: #f8dddd;
+  --fill-red: #ff3b30;
+  --fill-red-hover: #d13328;
+  --fill-red-secondary: #fff2f4;
+
+  --fill-yellow: #ffcc00;
+  --fill-yellow-secondary: #fffbf2;
+
+  --fill-brand: var(--fill-blue);
+  --fill-brand-hover: var(--fill-blue-hover);
+  --fill-brand-secondary: var(--fill-blue-secondary);
+
+  /* Colors */
+  --figure-gray: #1d1d1f;
+  --figure-gray-secondary: #6e6e73;
+  --figure-gray-secondary-alt: #515154;
+  --figure-gray-tertiary: #86868b;
+
+  --figure-blue: #06c;
+  --figure-red: #e30000;
+  --figure-yellow: #9e6700;
+
+  --figure-brand: var(--figure-blue);
+
+  /* Spacing */
+  --gutter-xxs: 2px;
+  --gutter-xs: 4px;
+  --gutter-sm: 8px;
+  --gutter: 16px;
+  --gutter-md: 24px;
+  --gutter-lg: 32px;
+  --gutter-xl: 48px;
+  --gutter-xxl: 64px;
+
+  --main-width: 900px;
+  --prose-width: 680px;
+
+  /* Border radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+
+  /* Z-index */
+  --modal-index: 50;
+  --menu-index: 50;
+
+  /* Animations */
+  --transition-fast: 200ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition: 400ms cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 600ms cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Fonts */
+  --font-sans: "Inter", sans-serif;
+
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-md: 1.1rem;
+  --font-lg: 1.2rem;
+  --font-xl: 1.3rem;
+  --font-xxl: 1.4rem;
+
+  /* Elements */
+  --interactive-element-height: 40px;
+  --interactive-element-border: 1px solid var(--fill-gray-quaternary);
+  --menu-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+  /* Dialog */
+  --dialog-width: 90vw;
+  --dialog-max-width: 600px;
+  --dialog-max-height: 85vh;
+  --dialog-bg: var(--fill);
+  --dialog-padding: var(--gutter-md);
+  --dialog-title-font-size: var(--font-md);
+  --dialog-shadow: 0px 2.7px 4.5px rgba(0, 0, 0, 0.014),
+    0px 7.5px 12.5px rgba(0, 0, 0, 0.02), 0px 18.1px 30.1px rgba(0, 0, 0, 0.026),
+    0px 60px 100px rgba(0, 0, 0, 0.04);
+  --dialog-entrance-animation: var(--transition);
+  --dialog-exit-animation: var(--transition-slow);
+  --dialog-border-radius: clamp(
+    0px,
+    calc(var(--radius) + min(var(--radius), var(--dialog-padding))),
+    46px
+  );
+
+  /* Popover */
+  --popover-width: max-content;
+  --popover-max-height: 600px;
+  --popover-bg: var(--fill);
+  --popover-border: var(--interactive-element-border);
+  --popover-padding: var(--gutter);
+  --popover-entrance-animation: var(--transition);
+  --popover-exit-animation: var(--transition-slow);
+  --popover-border-radius: clamp(
+    0px,
+    calc(var(--radius) + min(var(--radius), var(--popover-padding))),
+    38px
+  );
+
+  /* Menus */
+  --menu-width: 200px;
+  --menu-padding: var(--gutter-sm);
+  --menu-radius: calc(var(--menu-padding) + var(--radius));
+  --menu-bg: var(--fill);
+  --menu-color: var(--figure-gray);
+  --menu-border: var(--interactive-element-border);
+  --menu-entrance-animation: var(--transition);
+  --menu-exit-animation: var(--transition-slow);
+  --menu-item-height: 32px;
+  --menu-item-font-size: var(--font-sm);
+  --menu-item-focus-bg: var(--fill-gray-quaternary);
+  --menu-item-radius: var(--radius);
+  --menu-item-gap: var(--gutter);
+  --menu-item-transition: background-color var(--transition);
+  --menu-item-padding: 0 var(--gutter-sm) 0
+    calc(var(--menu-icon-size) + var(--gutter));
+  --menu-label-font-size: var(--font-xs);
+  --menu-label-color: var(--figure-gray-secondary);
+  --menu-label-padding: var(--gutter-sm) var(--gutter) var(--gutter-sm)
+    calc(var(--menu-icon-size) + var(--gutter));
+  --menu-inset-padding: var(--gutter-sm);
+  --menu-separator-height: 1px;
+  --menu-separator-width: 100%;
+  --menu-separator-bg: var(--fill-gray-quaternary);
+  --menu-separator-radius: 4px;
+  --menu-separator-margin: var(--gutter-xs) 0;
+  --menu-icon-size: 16px;
+  --menu-icon-color: inherit;
+  --menu-shortcut-font-size: var(--font-xs);
+  --menu-shortcut-color: var(--figure-gray-secondary);
+  --menu-shortcut-bg: var(--fill-gray-quaternary);
+  --menu-shortcut-padding: 0 var(--gutter-xs);
+  --menu-shortcut-border-radius: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fill: #0a0a0a;
+    --fill-secondary: #161617;
+    --fill-tertiary: #1d1d1f;
+
+    --fill-gray: #f5f5f7;
+    --fill-gray-secondary: #6e6e73;
+    --fill-gray-tertiary: #424245;
+    --fill-gray-quaternary: #333336;
+
+    --fill-blue: #0071e3;
+    --fill-blue-hover: #268bea;
+    --fill-blue-secondary: #001931;
+
+    --fill-red-highlight: #530808;
+    --fill-red: #ff3b30;
+    --fill-red-hover: #e4554b;
+    --fill-red-secondary: #300;
+
+    --fill-yellow: #ffcc00;
+    --fill-yellow-secondary: #2b1e00;
+
+    --figure-gray: #f5f5f7;
+    --figure-gray-secondary: #86868b;
+    --figure-gray-secondary-alt: #a1a1a6;
+    --figure-gray-tertiary: #6e6e73;
+
+    --figure-blue: #2997ff;
+    --figure-red: #ff3037;
+    --figure-yellow: #ffb50f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: medium;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--gutter-xl);
+}
+
+body {
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  background-color: var(--fill);
+  color: var(--figure-gray);
+  font-family: var(--font-sans);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: var(--font-xl);
+}
+
+h2 {
+  font-size: var(--font-lg);
+}
+
+h3 {
+  font-size: var(--font-md);
+}
+
+h4 {
+  font-size: var(--font-base);
+}
+
+h5 {
+  font-size: var(--font-sm);
+}
+
+h6 {
+  font-size: var(--font-xs);
+}
+
+code,
+pre {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-size: 14px;
+  background-color: var(--fill-gray-quaternary);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+}

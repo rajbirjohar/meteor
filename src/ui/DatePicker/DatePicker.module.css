@@ -1,0 +1,5 @@
+.trigger {
+  width: 266px;
+  justify-content: flex-start;
+  padding-left: var(--gutter-sm);
+}

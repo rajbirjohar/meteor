@@ -1,0 +1,178 @@
+.calendar {
+  padding: var(--gutter-xs);
+}
+/* 
+.calendar.multiplemonths {
+
+} */
+
+.multiplemonths .months {
+  display: grid;
+  grid-template-columns: 224px 224px;
+  gap: var(--gutter-md);
+}
+
+@media screen and (max-width: 768px) {
+  .multiplemonths .months {
+    grid-template-columns: 1fr;
+  }
+}
+
+.captiondropdowns {
+  display: flex;
+  gap: var(--gutter-sm);
+  align-items: center;
+}
+
+.vhidden {
+  visibility: hidden;
+  display: none;
+}
+
+.month {
+  width: 224px;
+}
+
+.months {
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  /* padding: 0 var(--gutter-sm); */
+  position: relative;
+}
+
+.captionlabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+.multiplemonths .captionend .nav {
+  justify-content: flex-end;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gutter-xs);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headcell {
+  font-size: var(--font-sm);
+  font-weight: normal;
+  color: var(--figure-gray-secondary);
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.headrow,
+.row {
+  display: flex;
+  width: 100%;
+  margin-top: var(--gutter-sm);
+}
+
+.cell {
+  height: 32px;
+  width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell:focus-within {
+  position: relative;
+  z-index: 20;
+}
+
+.daytoday {
+  background-color: var(--fill-brand-secondary);
+  color: var(--fill-brand);
+}
+
+.dayoutside {
+  color: var(--figure-gray-secondary);
+}
+
+.daydisabled {
+  background-color: var(--fill-gray-quaternary);
+  color: var(--figure-gray-secondary);
+}
+
+.dayhidden {
+  visibility: hidden;
+}
+
+.dayselected {
+  background-color: var(--fill-brand);
+  color: #fff;
+}
+
+.dayselected:hover {
+  background-color: var(--fill-brand-hover);
+}
+
+.dayselected.dayrangemiddle {
+  background-color: transparent;
+  color: var(--figure-gray);
+}
+
+.dayselected.dayrangemiddle:hover {
+  background-color: var(--fill-gray-tertiary);
+}
+
+.cell:has([aria-selected]) {
+  background-color: var(--fill-gray-quaternary);
+  border-radius: var(--radius);
+}
+
+.cell:has([aria-selected].dayrangestart) {
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.cell:has([aria-selected].dayrangemiddle) {
+  border-radius: 0;
+}
+
+.cell:has([aria-selected].dayrangeend) {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.cell:first-child:has([aria-selected]) {
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.cell:last-child:has([aria-selected]) {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Target all cells that are selected but also the only selected child */
+.cell:first-child:has([aria-selected]:not(.dayrangestart, .dayrangemiddle)) {
+  border-radius: var(--radius);
+}
+
+.cell:last-child:has([aria-selected]:not(.dayrangeend, .dayrangemiddle)) {
+  border-radius: var(--radius);
+}
+
+.cell:has([aria-selected].dayrangestart.dayrangeend) {
+  border-radius: var(--radius);
+}

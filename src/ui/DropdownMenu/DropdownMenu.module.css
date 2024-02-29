@@ -1,0 +1,271 @@
+.subcontent,
+.content {
+  display: flex;
+  flex-direction: column;
+  z-index: var(--menu-index);
+  min-width: var(--menu-width);
+  border-radius: var(--menu-radius);
+  background-color: var(--menu-bg);
+  box-shadow: var(--menu-shadow);
+  padding: var(--menu-padding);
+  border: var(--menu-border);
+  will-change: transform, opacity;
+}
+
+.item,
+.checkboxitem,
+.radioitem,
+.subtrigger {
+  font-size: var(--menu-item-font-size);
+  border-radius: var(--radius);
+  height: var(--menu-item-height);
+  gap: var(--gutter-sm);
+  transition: var(--menu-item-transition);
+  padding: var(--menu-item-padding);
+  display: flex;
+  align-items: center;
+  position: relative;
+  outline: transparent;
+  cursor: pointer;
+}
+
+.item:hover,
+.checkboxitem:hover,
+.radioitem:hover,
+.subtrigger:hover,
+.item:focus-visible,
+.checkboxitem:focus-visible,
+.radioitem:focus-visible,
+.subtrigger:focus-visible {
+  background-color: var(--menu-item-focus-bg);
+}
+
+.item[aria-disabled],
+.checkboxitem[aria-disabled],
+.radioitem[aria-disabled],
+.subtrigger[aria-disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: inherit;
+  background-color: var(--menu-item-focus-bg);
+}
+
+.inset {
+  padding-left: var(--menu-inset-padding);
+}
+
+.content svg,
+.subcontent svg {
+  color: inherit;
+  min-height: var(--menu-icon-size);
+  min-width: var(--menu-icon-size);
+  max-height: var(--menu-icon-size);
+  max-width: var(--menu-icon-size);
+}
+
+.check,
+.radio {
+  position: absolute;
+  left: var(--gutter-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--menu-icon-color);
+}
+
+.radio {
+  min-height: 10px !important;
+  max-height: 10px !important;
+  fill: var(--menu-icon-color);
+}
+
+.check {
+  margin-top: 4px;
+  height: var(--menu-icon-size);
+  width: var(--menu-icon-size);
+}
+
+.chevron {
+  height: var(--menu-icon-size);
+  width: var(--menu-icon-size);
+  position: absolute;
+  right: var(--gutter-sm);
+}
+
+.label {
+  font-size: var(--menu-label-font-size);
+  color: var(--menu-label-color);
+  padding: var(--menu-label-padding);
+}
+
+.separator {
+  height: var(--menu-separator-height);
+  width: var(--menu-separator-width);
+  background-color: var(--menu-separator-bg);
+  border-radius: var(--menu-separator-radius);
+  margin: var(--menu-separator-margin);
+}
+
+.shortcut {
+  font-size: var(--menu-shortcut-font-size);
+  color: var(--menu-shortcut-color);
+  padding: var(--menu-shortcut-padding);
+  background-color: var(--menu-shortcut-bg);
+  border-radius: var(--menu-shortcut-border-radius);
+  height: max-content;
+  width: max-content;
+  position: absolute;
+  right: var(--gutter-sm);
+}
+
+.content[data-state="open"][data-side="top"] {
+  animation: slideUpAndFadeOpen var(--popover-entrance-animation);
+}
+
+.content[data-state="closed"][data-side="top"] {
+  animation: slideUpAndFadeClosed var(--popover-exit-animation);
+}
+
+.content[data-state="open"][data-side="right"] {
+  animation: slideRightAndFadeOpen var(--popover-entrance-animation);
+}
+
+.content[data-state="closed"][data-side="right"] {
+  animation: slideRightAndFadeClosed var(--popover-exit-animation);
+}
+
+.content[data-state="open"][data-side="bottom"] {
+  animation: slideDownAndFadeOpen var(--popover-entrance-animation);
+}
+
+.content[data-state="closed"][data-side="bottom"] {
+  animation: slideDownAndFadeClosed var(--popover-exit-animation);
+}
+
+.content[data-state="open"][data-side="left"] {
+  animation: slideLeftAndFadeOpen var(--popover-entrance-animation);
+}
+
+.content[data-state="closed"][data-side="left"] {
+  animation: slideLeftAndFadeClosed var(--popover-exit-animation);
+}
+
+.subcontent[data-state="open"][data-side="top"] {
+  animation: slideUpAndFadeOpen var(--popover-entrance-animation);
+}
+
+.subcontent[data-state="closed"][data-side="top"] {
+  animation: slideUpAndFadeClosed var(--popover-exit-animation);
+}
+
+.subcontent[data-state="open"][data-side="right"] {
+  animation: slideRightAndFadeOpen var(--popover-entrance-animation);
+}
+
+.subcontent[data-state="closed"][data-side="right"] {
+  animation: slideRightAndFadeClosed var(--popover-exit-animation);
+}
+
+.subcontent[data-state="open"][data-side="bottom"] {
+  animation: slideDownAndFadeOpen var(--popover-entrance-animation);
+}
+
+.subcontent[data-state="closed"][data-side="bottom"] {
+  animation: slideDownAndFadeClosed var(--popover-exit-animation);
+}
+
+.subcontent[data-state="open"][data-side="left"] {
+  animation: slideLeftAndFadeOpen var(--popover-entrance-animation);
+}
+
+.subcontent[data-state="closed"][data-side="left"] {
+  animation: slideLeftAndFadeClosed var(--popover-exit-animation);
+}
+
+@keyframes slideUpAndFadeOpen {
+  from {
+    opacity: 0;
+    transform: translateY(2px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideRightAndFadeOpen {
+  from {
+    opacity: 0;
+    transform: translateX(-2px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideDownAndFadeOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-2px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideLeftAndFadeOpen {
+  from {
+    opacity: 0;
+    transform: translateX(2px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideUpAndFadeClosed {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(2px) scale(0.98);
+  }
+}
+
+@keyframes slideRightAndFadeClosed {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-2px) scale(0.98);
+  }
+}
+
+@keyframes slideDownAndFadeClosed {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-2px) scale(0.98);
+  }
+}
+
+@keyframes slideLeftAndFadeClosed {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(2px) scale(0.98);
+  }
+}
